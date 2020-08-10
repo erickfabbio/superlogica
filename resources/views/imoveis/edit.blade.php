@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <label for="proprietarios_beneficiarios" class="control-label">Proprietário(s)</label><br />
                     @foreach ($imovel->proprietarios_beneficiarios as $proprietario)
-                        {{ $proprietario->st_nome_pes }} <br />
+                        {{ $proprietario->st_nome_pes }} <hr>
                     @endforeach
                 </div>
 
