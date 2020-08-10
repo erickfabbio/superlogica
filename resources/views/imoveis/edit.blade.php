@@ -13,10 +13,15 @@
                 {{csrf_field()}}
                 <input type="hidden" name="id_imovel_imo" value="{{ $imovel->id_imovel_imo }}">
                 <div class="form-group">
-                    <label for="proprietarios_beneficiarios" class="control-label">Proprietário(s)</label><br />
-                    @foreach ($imovel->proprietarios_beneficiarios as $proprietario)
-                        {{ $proprietario->st_nome_pes }} <hr>
-                    @endforeach
+                    <div class="alert alert-dark" role="alert">
+                        <h4 class="alert-heading">Proprietários</h4>
+                        <hr>
+                        @foreach ($imovel->proprietarios_beneficiarios as $proprietario)
+                        <p class="mb-0">{{ $proprietario->st_nome_pes }} </p>
+                        @endforeach
+
+                    </div>
+
                 </div>
 
                 <div class="form-group">

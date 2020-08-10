@@ -86,7 +86,7 @@ class ImovelController extends Controller
             'TX_ADM_IMO' => $request->tx_adm_imo,
             'FL_TXADMVALORFIXO_IMO' => $request->fl_txadmvalorfixo_imo
         );
-        echo "<pre>".json_encode($body, JSON_PRETTY_PRINT)."</pre>";
+        //echo "<pre>".json_encode($body, JSON_PRETTY_PRINT)."</pre>";
 
         $response = $this->client->request('POST','',[
             'headers'=>$this->header,
