@@ -15,15 +15,20 @@
                     <label for="proprietarios_beneficiarios" class="control-label">Proprietário</label>
                     <select name="proprietarios_beneficiarios" class="form-control">
                         <option value="">Selecione um proprietário</option>
-                        @foreach ($proprietarios as $proprietario)
-                            <option value="{{ $proprietario->data->id_pessoa_pes }}">{{ $proprietario->data->st_nome_pes }}</option>
+                        @foreach ($proprietarios->data as $proprietario)
+                            <option value="{{ $proprietario->id_pessoa_pes }}">{{ $proprietario->st_nome_pes }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="st_tipo_imo" class="control-label">Tipo Imóvel</label>
-                    <input type="text" value="1" name="st_tipo_imo" class="form-control" style="width: 100%;" />
+                    <select name="st_tipo_imo" class="form-control">
+                        <option value="">Selecione um tipo</option>
+                        @foreach ($tipo_imoveis as $key=>$value)
+                            <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="st_cep_imo" class="control-label">CEP</label>
@@ -61,7 +66,7 @@
 
                 <div class="form-group">
                     <label for="st_identificador_imo" class="control-label">Identificador</label>
-                    <input type="text" value="75" name="st_identificador_imo" class="form-control" />
+                    <input type="text" name="st_identificador_imo" class="form-control"  placeholder="Código do Imóvel em outro sistema..." />
                 </div>
 
                 <div class="form-group">

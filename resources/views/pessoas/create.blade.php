@@ -8,7 +8,7 @@
 
 
         <div style="padding: 1rem;">
-            <form action="{{url('/clientes/store')}}" method="POST">
+            <form action="{{url('/pessoas/store')}}" method="POST">
 
                 {{csrf_field()}}
 
@@ -45,13 +45,13 @@
                 <div class="form-group">
                     <label for="st_sexo_pes" class="control-label">Sexo</label>
                     <select name="st_sexo_pes" class="form-control">
-                        <option value="Masculino">Masculino</option>
-                        <option value="Feminino">Feminino</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Feminino</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="st_nascimento_pes" class="control-label">Data de Nascimento</label>
-                    <input type="text" name="st_nascimento_pes" class="form-control" placeholder="00/00/0000" style="width: 50%;" />
+                    <label for="dt_nascimento_pes" class="control-label">Data de Nascimento</label>
+                    <input type="text" name="dt_nascimento_pes" class="form-control" placeholder="00/00/0000" style="width: 50%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_nacionalidade_pes" class="control-label">Nacionalidade</label>

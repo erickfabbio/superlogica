@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarsExample03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Proprietários</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pessoas</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="{{ url('/proprietarios/novo') }}">Novo</a>
-                        <a class="dropdown-item" href="{{ url('/proprietarios') }}">Listar</a>
+                        <a class="dropdown-item" href="{{ url('/pessoas/novo') }}">Novo</a>
+                        <a class="dropdown-item" href="{{ url('/pessoas') }}">Listar</a>
                     </div>
                 </li>
             </ul>
