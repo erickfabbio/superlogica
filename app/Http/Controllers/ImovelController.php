@@ -54,15 +54,15 @@ class ImovelController extends Controller
         ]);
         $result = json_decode($response->getBody()->getContents());
 
-        return $result;
+        return $result->data[0];
     }
 
     public function editarView($id)
     {
 
         return view('imoveis.edit', [
-            'imovel' => $this->getImovel($id)[0],
-            'pessoas' => $this->pessoas->getPessoas(),
+            'imovel' => $this->getImovelById($id),
+            'pessoas' => $this->pessoa->getPessoas(),
             'ufs' => $this->retornaUF()
         ]);
     }
