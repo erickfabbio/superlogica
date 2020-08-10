@@ -11,6 +11,9 @@
     </div>
 @endif
 
+<div class="card-header" style="padding: 1rem;">
+    <h4 class="card-body">Pessoas</h4>
+</div>
 
 <table class="table table-bordered">
     <thead class="thead-dark">

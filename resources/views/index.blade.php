@@ -13,7 +13,7 @@
 <body>
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Imobiliária</a>
+        <a class="navbar-brand" href="/superlogica/public">Imobiliária</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,8 +23,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pessoas</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="{{ url('/pessoas/novo') }}">Novo</a>
                         <a class="dropdown-item" href="{{ url('/pessoas') }}">Listar</a>
+                        <a class="dropdown-item" href="{{ url('/pessoas/novo') }}">Novo</a>
                     </div>
                 </li>
             </ul>
@@ -32,8 +32,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Imóveis</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="{{ url('/imoveis/novo') }}">Novo</a>
                         <a class="dropdown-item" href="{{ url('/imoveis') }}">Listar</a>
+                        <a class="dropdown-item" href="{{ url('/imoveis/novo') }}">Novo</a>
                     </div>
                 </li>
             </ul>
@@ -41,8 +41,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contratos</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="{{ url('/pessoas/novo') }}">Novo</a>
-                        <a class="dropdown-item" href="{{ url('/pessoas') }}">Listar</a>
+                        <a class="dropdown-item" href="#">Listar</a>
+                        <a class="dropdown-item" href="#">Novo</a>
                     </div>
                 </li>
             </ul>

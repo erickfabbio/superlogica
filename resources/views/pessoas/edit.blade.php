@@ -3,8 +3,11 @@
 
     <div class="py-4"></div>
 
+    <div class="card-header" style="padding: 1rem;">
+        <h4 class="card-body">Editar {{ $pessoa->st_nome_pes }}</h4>
+    </div>
+
     <div class="card">
-        <H3 style="margin: 1rem;">Editar {{ $pessoa->st_nome_pes }}</H3>
 
         <div style="padding: 1rem;">
             <form action="{{url('/pessoas/update')}}" method="POST">

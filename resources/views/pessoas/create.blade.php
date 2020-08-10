@@ -3,9 +3,11 @@
 
     <div class="py-4"></div>
 
-    <div class="card">
-        <H3 style="margin: 1rem;">Novo Cliente</H3>
+    <div class="card-header" style="padding: 1rem;">
+        <h4 class="card-body">Cadastrar Pessoa</h4>
+    </div>
 
+    <div class="card">
 
         <div style="padding: 1rem;">
             <form action="{{url('/pessoas/store')}}" method="POST">

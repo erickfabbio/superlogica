@@ -2,6 +2,12 @@
 @section('content')
 <div class="py-4"></div>
 
+
+<div class="card-header" style="padding: 1rem;">
+    <h4 class="card-body">Imóveis</h4>
+</div>
+
+
 @if ($msg != '')
     <div class="alert alert-primary" role="alert" style="width: 15rem;">
         {{ $msg }}
