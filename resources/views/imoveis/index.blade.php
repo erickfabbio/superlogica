@@ -2,14 +2,8 @@
 @section('content')
 <div class="py-4"></div>
 
-
-<div class="card-header" style="padding: 1rem;">
-    <h4 class="card-body">Imóveis</h4>
-</div>
-
-
 @if ($msg != '')
-    <div class="alert alert-primary" role="alert" style="width: 15rem;">
+    <div class="alert alert-primary" role="alert" style="width: 30rem; height: 7rem;">
         {{ $msg }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -17,6 +11,9 @@
     </div>
 @endif
 
+<div class="card-header" style="padding: 1rem;">
+    <h4 class="card-body">Imóveis</h4>
+</div>
 
 <table class="table table-bordered">
     <thead class="thead-dark">

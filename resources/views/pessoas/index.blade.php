@@ -3,7 +3,7 @@
 <div class="py-4"></div>
 
 @if ($msg != '')
-    <div class="alert alert-primary" role="alert" style="width: 15rem; height: 7rem;">
+    <div class="alert alert-primary" role="alert" style="width: 30rem; height: 7rem;">
         {{ $msg }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
