@@ -1,8 +1,6 @@
 @extends('index')
 @section('content')
 
-    <div class="py-4"></div>
-
     <div class="card-header" style="padding: 1rem;">
         <h4 class="card-body">Cadastrar Pessoa</h4>
     </div>
@@ -97,7 +95,8 @@
                     <input type="text" name="st_observacao_pes" class="form-control" placeholder="Observação" style="width: 100%;" />
                 </div>
 
-                <button class="btn btn-primary" style="float: right;">salvar </button>
+                <button class="btn btn-primary" style="float: right;">salvar</button>
+                <a href="{{ url('/pessoas') }}" class="btn btn-secondary" style="float: right; margin-right:15px;">cancelar</a>
             </form>
         </div>
     </div>

@@ -1,8 +1,6 @@
 @extends('index')
 @section('content')
 
-<div class="py-4"></div>
-
     <div class="card-header" style="padding: 1rem;">
     <h4 class="card-body">Editar Contrato #{{ $contrato->id_contrato_con }}</h4>
     </div>
@@ -160,7 +158,8 @@
                     </select>
                 </div>
 
-                <button class="btn btn-primary" style="float: right;">salvar </button>
+                <button class="btn btn-primary" style="float: right;">salvar</button>
+                <a href="{{ url('/contratos') }}" class="btn btn-secondary" style="float: right; margin-right:15px;">cancelar</a>
             </form>
         </div>
     </div>

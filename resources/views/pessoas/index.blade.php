@@ -1,6 +1,5 @@
 @extends('index')
 @section('content')
-<div class="py-4"></div>
 
 @if ($msg != '')
     <div class="alert alert-primary" role="alert" style="width: 30rem; height: 7rem;">
