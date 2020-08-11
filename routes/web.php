@@ -50,3 +50,13 @@ Route::group(["prefix" => "contratos"], function(){
     Route::post("/store", "ContratoController@store");
     Route::post("/update", "ContratoController@atualizar");
 });
+
+Route::group(["prefix" => "despesas"], function(){
+    Route::get("/{id}/contrato", "DespesaController@index");
+    Route::get("/novo", "ContratoController@novoView");
+    Route::get("/{id}/editar", "ContratoController@editarView");
+    Route::get("/{id}/excluir", "ContratoController@excluirView");
+    Route::get("/{id}/destroy", "ContratoController@destroy");
+    Route::post("/store", "ContratoController@store");
+    Route::post("/update", "ContratoController@atualizar");
+});
