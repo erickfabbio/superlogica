@@ -44,7 +44,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contratos</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
                         <a class="dropdown-item" href="{{ url('/contratos') }}">Listar</a>
-                        <a class="dropdown-item" href="/contratos/novo">Novo</a>
+                        <a class="dropdown-item" href="{{ url('/contratos/novo') }}">Novo</a>
                     </div>
                 </li>
             </ul>

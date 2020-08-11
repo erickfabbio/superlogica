@@ -14,8 +14,8 @@
 
                 {{csrf_field()}}
                 <div class="form-group">
-                    <label for="ID_IMOVEL_IMO" class="control-label">Imóvel</label>
-                    <select name="ID_IMOVEL_IMO" class="form-control">
+                    <label for="id_imovel_imo" class="control-label">Imóvel</label>
+                    <select name="id_imovel_imo" class="form-control">
                         <option value="">Selecione um imóvel</option>
                         @foreach ($imoveis->data as $imovel)
                             <option value="{{ $imovel->id_imovel_imo }}">
@@ -36,59 +36,47 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="st_cep_imo" class="control-label">CEP</label>
-                    <input type="text" name="st_cep_imo" class="form-control" placeholder="CEP" style="width: 50%;" />
+                    <label for="dt_inicio_con" class="control-label">Data de Início do Contrato</label>
+                    <input type="text" name="dt_inicio_con" id="data_inicio" class="form-control" placeholder="00/00/0000" style="width: 15rem;" />
+
+                    <label for="dt_fim_con" class="control-label">Data de Término do Contrato</label>
+                    <input type="text" name="dt_fim_con" id="data_final" class="form-control" placeholder="00/00/0000" style="width: 15rem;" />
+                </div>
+                <div class="form-group">
+                    <label for="vl_aluguel_con" class="control-label">Valor Aluguel</label>
+                    <input type="text" name="vl_aluguel_con" class="form-control" placeholder="" style="width: 15rem;" />
+                </div>
+                <div class="form-group">
+                    <label for="tx_adm_con" class="control-label">Taxa Administrativa</label>
+                    <input type="text" name="tx_adm_con" class="form-control" placeholder="" style="width: 15rem;" />
+                </div>
+                <div class="form-group">
+                    <label for="fl_txadmvalorfixo_con" class="control-label">Taxa Valor Fixo</label>
+                    <input type="text" name="fl_txadmvalorfixo_con" class="form-control" placeholder="" style="width: 15rem;" />
+                </div>
+                <div class="form-group">
+                    <label for="nm_diavencimento_con" class="control-label">Dia do Vencimento</label>
+                    <input type="text" name="nm_diavencimento_con" class="form-control" placeholder="" style="width: 15rem;" />
                 </div>
 
                 <div class="form-group">
-                    <label for="st_endereco_imo" class="control-label">Endereço</label>
-                    <input type="text" name="st_endereco_imo" class="form-control" placeholder="Endereço" style="width: 100%;" />
+                    <label for="proprietarios_beneficiarios" class="control-label">Inquilino</label>
+                    <select name="proprietarios_beneficiarios" class="form-control">
+                        <option value="">Selecione um Inquilino</option>
+                        @foreach ($inquilinos->data as $inquilino)
+                            <option value="{{ $inquilino->id_pessoa_pes }}">{{ $inquilino->st_nome_pes }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="st_numero_imo" class="control-label">Número</label>
-                    <input type="text" name="st_numero_imo" class="form-control" placeholder="Número" style="width: 50%;" />
-                </div>
-                <div class="form-group">
-                    <label for="st_complemento_imo" class="control-label">Complemento</label>
-                    <input type="text" name="st_complemento_imo" class="form-control" placeholder="Complemento" style="width: 100%;" />
-                </div>
-                <div class="form-group">
-                    <label for="st_bairro_imo" class="control-label">Bairro</label>
-                    <input type="text" name="st_bairro_imo" class="form-control" placeholder="Bairro" style="width: 100%;" />
-                </div>
-                <div class="form-group">
-                    <label for="st_cidade_imo" class="control-label">Cidade</label>
-                    <input type="text" name="st_cidade_imo" class="form-control" placeholder="Cidade" style="width: 100%;" />
-                </div>
-
-
-
-                <div class="form-group">
-                    <label for="st_identificador_imo" class="control-label">Identificador</label>
-                    <input type="text" name="st_identificador_imo" class="form-control"  placeholder="Código do Imóvel em outro sistema..." />
-                </div>
-
-                <div class="form-group">
-                    <label for="vl_aluguel_imo" class="control-label">Valor Aluguel</label>
-                    <input type="text" name="vl_aluguel_imo" placeholder="0.00" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="vl_venda_imo" class="control-label">Valor Venda</label>
-                    <input type="text" name="vl_venda_imo" placeholder="0.00" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="tx_adm_imo" class="control-label">Taxa Administrativa</label>
-                    <input type="text" name="tx_adm_imo" placeholder="0.00" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="fl_txadmvalorfixo_imo" class="control-label">Taxa Adm Fixo</label>
-                    <input type="text" name="fl_txadmvalorfixo_imo" placeholder="0.00" class="form-control" />
-                </div>
-
 
                 <button class="btn btn-primary" style="float: right;">salvar </button>
             </form>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $("#data_inicio, #data_final").mask("00/00/0000");
+
+    </script>
 
 @endsection

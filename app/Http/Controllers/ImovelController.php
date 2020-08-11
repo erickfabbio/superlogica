@@ -54,7 +54,7 @@ class ImovelController extends Controller
         ]);
     }
 
-    protected function getImoveis()
+    public function getImoveis()
     {
         $response = $this->client->request('GET','',['headers'=>$this->header]);
         $result = json_decode($response->getBody()->getContents());
