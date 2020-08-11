@@ -23,16 +23,16 @@
                     <input type="text" value="{{ $pessoa->st_fantasia_pes }}" name="st_fantasia_pes" class="form-control" placeholder="nome_fantasia" style="width: 100%;" />
                 </div>
                 <div class="form-group">
-                    <label for="st_cnpj_pes" class="control-label">CNPJ</label>
-                    <input type="text" value="{{ $pessoa->st_cnpj_pes }}" name="st_cnpj_pes" class="form-control" placeholder="cnpj" style="width: 100%;" />
+                    <label for="st_cnpj_pes" class="control-label">CPF</label>
+                    <input type="text" value="{{ $pessoa->st_cnpj_pes }}" name="st_cnpj_pes" id="cpf" class="form-control" placeholder="CPF" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_celular_pes" class="control-label">Celular</label>
-                    <input type="text" value="{{ $pessoa->st_celular_pes }}" name="st_celular_pes" class="form-control" placeholder="celular" style="width: 100%;" />
+                    <input type="text" value="{{ $pessoa->st_celular_pes }}" name="st_celular_pes" id="celular" class="form-control" placeholder="celular" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_telefone_pes" class="control-label">Telefone</label>
-                    <input type="text" value="{{ $pessoa->st_telefone_pes }}" name="st_telefone_pes" class="form-control" placeholder="Telefone" style="width: 100%;" />
+                    <input type="text" value="{{ $pessoa->st_telefone_pes }}" name="st_telefone_pes" id="telefone" class="form-control" placeholder="Telefone" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_email_pes" class="control-label">E-mail</label>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_sexo_pes" class="control-label">Sexo</label>
-                    <select name="st_sexo_pes" class="form-control">
+                    <select name="st_sexo_pes" class="form-control" style="width: 30rem;">
                         @foreach ($sexos as $key=>$value)
                             @if($pessoa->st_sexo_pes == $key)
                                 <option value="{{ $key }}" selected>{{ $value }}</option>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label for="dt_nascimento_pes" class="control-label">Data de Nascimento</label>
-                    <input type="text" value="{{ $pessoa->dt_nascimento_pes }}" name="dt_nascimento_pes" class="form-control" placeholder="00/00/0000" style="width: 50%;" />
+                    <input type="text" value="{{ $pessoa->dt_nascimento_pes }}" name="dt_nascimento_pes" id="datanascimento" class="form-control" placeholder="00/00/0000" style="width: 50%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_nacionalidade_pes" class="control-label">Nacionalidade</label>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_cep_pes" class="control-label">CEP</label>
-                    <input type="text" value="{{ $pessoa->st_cep_pes }}" name="st_complemento_pes" class="form-control" placeholder="CEP" style="width: 100%;" />
+                    <input type="text" value="{{ $pessoa->st_cep_pes }}" style="width: 30rem;" name="st_cep_pes" id="cep" class="form-control" placeholder="CEP" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_endereco_pes" class="control-label">Endereço</label>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_numero_pes" class="control-label">Número</label>
-                    <input type="text" value="{{ $pessoa->st_numero_pes }}" name="st_complemento_pes" class="form-control" placeholder="Número" style="width: 100%;" />
+                    <input type="text" value="{{ $pessoa->st_numero_pes }}" name="st_numero_pes" class="form-control" placeholder="Número" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_complemento_pes" class="control-label">Complemento</label>
@@ -103,12 +103,20 @@
 
                 <div class="form-group">
                     <label for="st_observacao_pes" class="control-label">Observação</label>
-                    <input type="text" value="{{ $pessoa->st_observacao_pes }}" name="st_complemento_pes" class="form-control" placeholder="Observação" style="width: 100%;" />
+                    <input type="text" value="{{ $pessoa->st_observacao_pes }}" name="st_observacao_pes" class="form-control" placeholder="Observação" style="width: 100%;" />
                 </div>
 
                 <button class="btn btn-primary" style="float: right;">salvar </button>
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $("#celular").mask("(00) 000000000");
+        $("#telefone").mask("(00) 00000000");
+        $("#cpf").mask("00000000000");
+
+        $("#datanascimento").mask("00/00/0000");
+        $("#cep").mask("00000-000");
+    </script>
 
 @endsection

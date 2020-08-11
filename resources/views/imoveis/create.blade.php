@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_cep_imo" class="control-label">CEP</label>
-                    <input type="text" name="st_cep_imo" class="form-control" placeholder="CEP" style="width: 100%;" />
+                    <input type="text" name="st_cep_imo" class="form-control" placeholder="CEP" style="width: 50%;" />
                 </div>
 
                 <div class="form-group">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_numero_imo" class="control-label">Número</label>
-                    <input type="text" name="st_numero_imo" class="form-control" placeholder="Número" style="width: 100%;" />
+                    <input type="text" name="st_numero_imo" class="form-control" placeholder="Número" style="width: 50%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_complemento_imo" class="control-label">Complemento</label>

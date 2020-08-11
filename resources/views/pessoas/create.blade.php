@@ -23,16 +23,16 @@
                     <input type="text" name="st_fantasia_pes" class="form-control" placeholder="Nome Fantasia" style="width: 100%;" />
                 </div>
                 <div class="form-group">
-                    <label for="st_cnpj_pes" class="control-label">CNPJ</label>
-                    <input type="text" name="st_cnpj_pes" class="form-control" placeholder="CNPJ" style="width: 100%;" />
+                    <label for="st_cnpj_pes" class="control-label">CPF</label>
+                    <input type="text" name="st_cnpj_pes" class="form-control" id="cpf" placeholder="CPF" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_celular_pes" class="control-label">Celular</label>
-                    <input type="text" name="st_celular_pes" class="form-control" placeholder="Celular" style="width: 100%;" />
+                    <input type="text" name="st_celular_pes" class="form-control" id="celular" placeholder="Celular" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_telefone_pes" class="control-label">Telefone</label>
-                    <input type="text" name="st_telefone_pes" class="form-control" placeholder="Telefone" style="width: 100%;" />
+                    <input type="text" name="st_telefone_pes" class="form-control" id="telefone" placeholder="Telefone" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_email_pes" class="control-label">E-mail</label>
@@ -41,19 +41,19 @@
 
                 <div class="form-group">
                     <label for="st_rg_pes" class="control-label">RG</label>
-                    <input type="text" name="st_rg_pes" class="form-control" placeholder="RG" style="width: 50%;" />
-                    <input type="text" name="st_orgao_pes" class="form-control" placeholder="Órgão Emissor" style="width: 30%;" />
+                    <input type="text" name="st_rg_pes" class="form-control" id="rg" placeholder="RG" style="width: 50%;" />
+                    <input type="text" name="st_orgao_pes" class="form-control" id="orgao" placeholder="Órgão Emissor" style="width: 30%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_sexo_pes" class="control-label">Sexo</label>
-                    <select name="st_sexo_pes" class="form-control">
+                    <select name="st_sexo_pes" class="form-control" style="width: 30rem;">
                         <option value="1">Masculino</option>
                         <option value="2">Feminino</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="dt_nascimento_pes" class="control-label">Data de Nascimento</label>
-                    <input type="text" name="dt_nascimento_pes" class="form-control" placeholder="00/00/0000" style="width: 50%;" />
+                    <input type="text" name="dt_nascimento_pes" class="form-control" id="datanascimento" placeholder="dia/mes/ano" style="width: 50%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_nacionalidade_pes" class="control-label">Nacionalidade</label>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_cep_pes" class="control-label">CEP</label>
-                    <input type="text" name="st_cep_pes" class="form-control" placeholder="CEP" style="width: 100%;" />
+                    <input type="text" name="st_cep_pes" class="form-control" style="width: 30rem;" id="cep" placeholder="CEP" style="width: 100%;" />
                 </div>
                 <div class="form-group">
                     <label for="st_endereco_pes" class="control-label">Endereço</label>
@@ -101,5 +101,13 @@
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $("#celular").mask("(00) 000000000");
+        $("#telefone").mask("(00) 00000000");
+        $("#cpf").mask("00000000000");
+
+        $("#datanascimento").mask("00/00/0000");
+        $("#cep").mask("00000-000");
+    </script>
 
 @endsection

@@ -5,7 +5,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
     <title>Lista</title>
 <head>
 
@@ -41,7 +43,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contratos</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="#">Listar</a>
+                        <a class="dropdown-item" href="{{ url('/contratos') }}">Listar</a>
                         <a class="dropdown-item" href="#">Novo</a>
                     </div>
                 </li>

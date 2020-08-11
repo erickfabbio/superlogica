@@ -82,6 +82,7 @@ class PessoaController extends Controller
 
     public function store(Request $request)
     {
+
         $body = array(
             'ST_NOME_PES' => $request->st_nome_pes,
             'ST_FANTASIA_PES' => $request->st_fantasia_pes,
@@ -94,7 +95,7 @@ class PessoaController extends Controller
             'ST_SEXO_PES' => $request->st_sexo_pes,
             'DT_NASCIMENTO_PES' => $request->dt_nascimento_pes,
             'ST_NACIONALIDADE_PES' => $request->st_nacionalidade_pes,
-            'ST_CEP_PES' => $request->st_cep_pes,
+            'ST_CEP_PES' => str_replace('-','',$request->st_cep_pes),
             'ST_ENDERECO_PES' => $request->st_endereco_pes,
             'ST_NUMERO_PES' => $request->st_numero_pes,
             'ST_COMPLEMENTO_PES' => $request->st_complemento_pes,
@@ -111,9 +112,9 @@ class PessoaController extends Controller
         ]);
         $retorno = json_decode($response->getBody()->getContents());
         if ($retorno->status == '206') {
-            return $this->index($retorno->data[0]->msg);
+            return $this->index(1,$retorno->data[0]->msg);
         } else {
-            return $this->index($retorno->msg);
+            return $this->index(1,$retorno->msg);
         }
 
     }
@@ -133,7 +134,7 @@ class PessoaController extends Controller
             'ST_SEXO_PES' => $request->st_sexo_pes,
             'DT_NASCIMENTO_PES' => $request->dt_nascimento_pes,
             'ST_NACIONALIDADE_PES' => $request->st_nacionalidade_pes,
-            'ST_CEP_PES' => $request->st_cep_pes,
+            'ST_CEP_PES' => str_replace('-','',$request->st_cep_pes),
             'ST_ENDERECO_PES' => $request->st_endereco_pes,
             'ST_NUMERO_PES' => $request->st_numero_pes,
             'ST_COMPLEMENTO_PES' => $request->st_complemento_pes,
@@ -150,9 +151,9 @@ class PessoaController extends Controller
         ]);
         $retorno = json_decode($response->getBody()->getContents());
         if ($retorno->status == '206') {
-            return $this->index($retorno->data[0]->msg);
+            return $this->index(1,$retorno->data[0]->msg);
         } else {
-            return $this->index($retorno->msg);
+            return $this->index(1,$retorno->msg);
         }
     }
 

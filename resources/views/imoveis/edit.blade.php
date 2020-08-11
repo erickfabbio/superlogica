@@ -28,11 +28,20 @@
 
                 <div class="form-group">
                     <label for="st_tipo_imo" class="control-label">Tipo Imóvel</label>
-                    <input type="text" value="{{ $imovel->st_tipo_imo }}" name="st_tipo_imo" class="form-control" style="width: 100%;" />
+                    <select name="st_tipo_imo" class="form-control" style="width: 50%;">
+                        <option value="">Selecione um tipo</option>
+                        @foreach ($tipo_imoveis as $key=>$value)
+                            @if($imovel->st_tipo_imo == $key)
+                                <option value="{{ $key }}" selected>{{ $value }}</option>
+                            @else
+                                <option value="{{ $key }}">{{ $value }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="st_cep_imo" class="control-label">CEP</label>
-                    <input type="text" value="{{ $imovel->st_cep_imo }}" name="st_cep_imo" class="form-control" placeholder="CEP" style="width: 100%;" />
+                    <input type="text" value="{{ $imovel->st_cep_imo }}" name="st_cep_imo" class="form-control" placeholder="CEP" style="width: 50%;" />
                 </div>
 
                 <div class="form-group">
@@ -41,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_numero_imo" class="control-label">Número</label>
-                    <input type="text" value="{{ $imovel->st_numero_imo }}" name="st_numero_imo" class="form-control" placeholder="Número" style="width: 100%;" />
+                    <input type="text" value="{{ $imovel->st_numero_imo }}" name="st_numero_imo" class="form-control" placeholder="Número" style="width: 30rem;" />
                 </div>
                 <div class="form-group">
                     <label for="st_complemento_imo" class="control-label">Complemento</label>
@@ -57,7 +66,7 @@
                 </div>
                 <div class="form-group">
                     <label for="st_estado_imo" class="control-label">Estado</label>
-                    <select name="st_estado_imo" class="form-control">
+                    <select name="st_estado_imo" class="form-control" style="width: 50%;">
                         @foreach ($ufs as $key=>$value)
                             @if($imovel->st_estado_imo == $key)
                                 <option value="{{ $key }}" selected>{{ $value }}</option>

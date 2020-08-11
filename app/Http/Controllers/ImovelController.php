@@ -72,7 +72,8 @@ class ImovelController extends Controller
         return view('imoveis.edit', [
             'imovel' => $this->getImovelById($id),
             'pessoas' => $this->pessoa->getPessoas(),
-            'ufs' => $this->retornaUF()
+            'ufs' => $this->retornaUF(),
+            'tipo_imoveis' => $this->retornaTipoImo()
         ]);
     }
     public function store(Request $request)
