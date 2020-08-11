@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="position: fixed; z-index:1000; width: 100%; ">
         <a class="navbar-brand" href="/superlogica/public">Imobiliária</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
     </nav>
 
     <div class="container">
-        <div class="py-4"></div>
+        <div class="py-4" style="margin-bottom: 2rem;"></div>
         @yield('content')
         <div class="py-4"></div>
     </div>
