@@ -34,14 +34,23 @@ class ImovelController extends Controller
         ]);
     }
 
-    public function index($msg='')
+    public function index($pagina=1, $msg='')
     {
-        $response = $this->client->request('GET','',['headers'=>$this->header]);
+        $body = json_encode(array('pagina' => $pagina));
+        $response = $this->client->request('GET','',[
+            'headers'=>$this->header,
+            'body' => $body
+        ]);
         $retorno = json_decode($response->getBody()->getContents());
+        $disabled ='';
+        if ($pagina == 1)
+            $disabled = "disabled";
 
         return view('imoveis.index', [
             'imoveis' => $retorno,
-            'msg' => $msg
+            'msg' => $msg,
+            'pagina' => $pagina,
+            'disabled' => $disabled
         ]);
     }
 
@@ -94,9 +103,9 @@ class ImovelController extends Controller
         ]);
         $retorno = json_decode($response->getBody()->getContents());
         if ($retorno->status == '206') {
-            return $this->index($retorno->data[0]->msg);
+            return $this->index(1, $retorno->data[0]->msg);
         } else {
-            return $this->index($retorno->msg);
+            return $this->index(1, $retorno->msg);
         }
     }
 
@@ -126,7 +135,7 @@ class ImovelController extends Controller
         ]);
         $retorno = json_decode($response->getBody()->getContents());
         $msg = "Status: ".$retorno[0]->status." - ".$retorno[0]->msg;
-        return $this->index($msg);
+        return $this->index(1,$msg);
     }
 
     public function retornaUF()

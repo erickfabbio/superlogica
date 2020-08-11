@@ -30,11 +30,23 @@ class PessoaController extends Controller
         ]);
     }
 
-    public function index($msg='')
+    public function index($pagina=1, $msg='')
     {
+        $body = json_encode(array('pagina' => $pagina));
+        $response = $this->client->request('GET','',[
+            'headers'=>$this->header,
+            'body' => $body
+        ]);
+        $retorno = json_decode($response->getBody()->getContents());
+        $disabled ='';
+        if ($pagina == 1)
+            $disabled = "disabled";
+
         return view('pessoas.index', [
-            'pessoas' => $this->getPessoas(),
-            'msg' => $msg
+            'pessoas' => $retorno,
+            'msg' => $msg,
+            'pagina' => $pagina,
+            'disabled' => $disabled
         ]);
     }
 

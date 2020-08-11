@@ -13,6 +13,21 @@
 
 <div class="card-header" style="padding: 1rem;">
     <h4 class="card-body">Pessoas</h4>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item {{$disabled}}">
+                <a class="page-link" href="{{ url("/pessoas/".--$pagina."/pagina") }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item disabled"><a class="page-link" href="#">{{++$pagina}}</a></li>
+            <li class="page-item">
+                <a class="page-link" href="{{ url("/pessoas/".++$pagina."/pagina") }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <table class="table table-bordered">
