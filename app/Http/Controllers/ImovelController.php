@@ -62,7 +62,7 @@ class ImovelController extends Controller
         return $result;
     }
 
-    protected function getImovelById($id)
+    public function getImovelById($id)
     {
         $body = array('id' => $id, 'apenasColunasPrincipais' => 1, 'status' => 0);
         $response = $this->client->request('GET','',[
