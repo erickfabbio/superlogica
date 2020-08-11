@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use App\Http\Controllers\ProprietarioController;
+use App\Http\Controllers\PessoaController;
 
 class ImovelController extends Controller
 {
@@ -25,15 +25,6 @@ class ImovelController extends Controller
         $this->pessoa = new PessoaController();
     }
 
-    public function novoView()
-    {
-        return view('imoveis.create', [
-            'ufs' => $this->retornaUF(),
-            'proprietarios' => $this->pessoa->getPessoas(),
-            'tipo_imoveis' => $this->retornaTipoImo()
-        ]);
-    }
-
     public function index($pagina=1, $msg='')
     {
         $body = json_encode(array('pagina' => $pagina));
@@ -52,6 +43,23 @@ class ImovelController extends Controller
             'pagina' => $pagina,
             'disabled' => $disabled
         ]);
+    }
+
+    public function novoView()
+    {
+        return view('imoveis.create', [
+            'ufs' => $this->retornaUF(),
+            'proprietarios' => $this->pessoa->getPessoas(),
+            'tipo_imoveis' => $this->retornaTipoImo()
+        ]);
+    }
+
+    protected function getImoveis()
+    {
+        $response = $this->client->request('GET','',['headers'=>$this->header]);
+        $result = json_decode($response->getBody()->getContents());
+
+        return $result;
     }
 
     protected function getImovelById($id)
@@ -113,21 +121,23 @@ class ImovelController extends Controller
     public function atualizar(Request $request)
     {
         $body = array(
-                'id_imovel_imo' => $request->id_imovel_imo,
-                'proprietarios_beneficiarios[0][id_pessoa_pes]' => $request->proprietarios_beneficiarios,
-                'st_tipo_imo' => $request->st_tipo_imo,
-                'st_cep_imo' => $request->st_cep_imo,
-                'st_endereco_imo' => $request->st_endereco_imo,
-                'st_numero_imo' => $request->st_numero_imo,
-                'st_complemento_imo' => $request->st_complemento_imo,
-                'st_bairro_imo' => $request->st_bairro_imo,
-                'st_cidade_imo' => $request->st_cidade_imo,
-                'st_estado_imo' => $request->st_estado_imo,
-                'st_identificador_imo' => $request->st_identificador_imo,
-                'vl_aluguel_imo' => $request->vl_aluguel_imo,
-                'vl_venda_imo' => $request->vl_venda_imo,
-                'tx_adm_imo' => $request->tx_adm_imo,
-                'fl_txadmvalorfixo_imo' => $request->fl_txadmvalorfixo_imo
+                'ID_IMOVEL_IMO' => $request->id_imovel_imo,
+                'PROPRIETARIOS_BENEFICIARIOS[0][ID_PESSOA_PES]' => $request->proprietarios_beneficiarios,
+                'PROPRIETARIOS_BENEFICIARIOS[0][FL_PROPRIETARIO_PRB]' => "1",
+                'PROPRIETARIOS_BENEFICIARIOS[0][NM_FRACAO_PRB]' => "100.00",
+                'ST_TIPO_IMO' => $request->st_tipo_imo,
+                'ST_CEP_IMO' => $request->st_cep_imo,
+                'ST_ENDERECO_IMO' => $request->st_endereco_imo,
+                'ST_NUMERO_IMO' => $request->st_numero_imo,
+                'ST_COMPLEMENTO_IMO' => $request->st_complemento_imo,
+                'ST_BAIRRO_IMO' => $request->st_bairro_imo,
+                'ST_CIDADE_IMO' => $request->st_cidade_imo,
+                'ST_ESTADO_IMO' => $request->st_estado_imo,
+                'ST_IDENTIFICADOR_IMO' => $request->st_identificador_imo,
+                'VL_ALUGUEL_IMO' => $request->vl_aluguel_imo,
+                'VL_VENDA_IMO' => $request->vl_venda_imo,
+                'TX_ADM_IMO' => $request->tx_adm_imo,
+                'FL_TXADMVALORFIXO_IMO' => $request->fl_txadmvalorfixo_imo
         );
 
         $response = $this->client->request('PUT','',[
@@ -135,8 +145,11 @@ class ImovelController extends Controller
             'body'=> json_encode($body)
         ]);
         $retorno = json_decode($response->getBody()->getContents());
-        $msg = "Status: ".$retorno[0]->status." - ".$retorno[0]->msg;
-        return $this->index(1,$msg);
+        if ($retorno->status == '206') {
+            return $this->index(1,$retorno->data[0]->msg);
+        } else {
+            return $this->index(1,$retorno->msg);
+        }
     }
 
     public function retornaUF()

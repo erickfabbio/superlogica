@@ -10,7 +10,7 @@
     <div class="card">
 
         <div style="padding: 1rem;">
-            <form action="{{url('/imoveis/store')}}" method="POST">
+            <form action="{{url('/imoveis/update')}}" method="POST">
 
                 {{csrf_field()}}
                 <input type="hidden" name="id_imovel_imo" value="{{ $imovel->id_imovel_imo }}">
