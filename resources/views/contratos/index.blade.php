@@ -35,6 +35,7 @@
         <tr>
             <th scope="col"># Contrato</th>
             <th scope="col">Proprietário</th>
+            <th scope="col">Inquilino</th>
             <th scope="col">Data Início</th>
             <th scope="col">Data Final</th>
             <th scope="col"></th>
@@ -46,6 +47,11 @@
         <tr>
             <td>{{ $contrato->id_contrato_con }}</td>
             <td>{{ $contrato->nome_proprietario }}</td>
+            <td>
+                @foreach ($contrato->inquilinos as $inquilino)
+                {{ $inquilino->st_nomeinquilino }}<br />
+                @endforeach
+            </td>
             <td>{{ $contrato->dt_inicio_con }} </td>
             <td> {{ $contrato->dt_fim_con }}</td>
             <th scope="row">

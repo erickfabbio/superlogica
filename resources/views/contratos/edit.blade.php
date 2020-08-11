@@ -21,15 +21,21 @@
                         <hr>
                         {{ $contrato->st_endereco_imo.", ".$contrato->st_numero_imo.", ".$contrato->st_complemento_imo }}&nbsp;
                         {{ $contrato->st_cidade_imo."/".$contrato->st_estado_imo }}
+                        <hr>
+                        <h4 class="alert-heading">Inquilino</h4>
+                        <hr>
+                        @foreach ($contrato->inquilinos as $inquilino)
+                        {{ $inquilino->st_nomeinquilino }}<br />
+                        @endforeach
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="st_tipo_imo" class="control-label">Tipo Contrato</label>
-                    <select name="st_tipo_imo" class="form-control">
+                    <label for="id_tipo_con" class="control-label">Tipo Contrato</label>
+                    <select name="id_tipo_con" class="form-control">
                         <option value="">Selecione um tipo</option>
                         @foreach ($tipos_contrato as $key=>$value)
-                            @if($key == $contrato->st_tipo_imo)
+                            @if($key == $contrato->id_tipo_con)
                                 <option value="{{ $key }}" selected>{{ $value }}</option>
                             @else
                                 <option value="{{ $key }}" >{{ $value }}</option>
@@ -70,17 +76,6 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="id_inquilino" class="control-label">Inquilino</label>
-                    <select name="id_inquilino" class="form-control">
-                        <option value="">Selecione um Inquilino</option>
-                        @foreach ($inquilinos->data as $inquilino)
-
-                            <option value="{{ $inquilino->id_pessoa_pes }}">{{ $inquilino->st_nome_pes }}</option>
-
-                        @endforeach
-                    </select>
-                </div>
                 <div class="form-group">
                     <label for="tx_locacao_con" class="control-label">Taxa de Locação</label>
                     <input type="text" name="tx_locacao_con" value="{{ $contrato->tx_locacao_con }}" class="form-control" placeholder="" style="width: 15rem;" />

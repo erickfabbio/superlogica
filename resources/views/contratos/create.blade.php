@@ -10,7 +10,7 @@
     <div class="card">
 
         <div style="padding: 1rem;">
-            <form action="{{url('/Ccontratos/store')}}" method="POST">
+            <form action="{{url('/contratos/store')}}" method="POST">
 
                 {{csrf_field()}}
                 <div class="form-group">
@@ -27,8 +27,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="st_tipo_imo" class="control-label">Tipo Contrato</label>
-                    <select name="st_tipo_imo" class="form-control">
+                    <label for="id_tipo_con" class="control-label">Tipo Contrato</label>
+                    <select name="id_tipo_con" class="form-control">
                         <option value="">Selecione um tipo</option>
                         @foreach ($tipos_contrato as $key=>$value)
                             <option value="{{ $key }}">{{ $value }}</option>
@@ -127,7 +127,6 @@
                     <label for="st_observacao_con" class="control-label">Observação</label>
                     <input type="text" name="st_observacao_con" class="form-control" placeholder="Observação" style="width: 100%;" />
                 </div>
-                nm_repassegarantido_con =
 
                 <div class="form-group">
                     <label for="fl_endcobranca_con" class="control-label">Mês Vencido</label>
